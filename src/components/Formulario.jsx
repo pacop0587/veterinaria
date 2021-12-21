@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Error from "./Error";
 
 const Formulario = () => {
     const [nombre, setNombre] = useState('');
@@ -29,10 +30,9 @@ const Formulario = () => {
             <h2 className="fw-bold fs-4 text-center">Seguimiento Pacientes</h2>
             <p className="fs-5 mt-3 text-center">Añade Pacientes y <span className="text-info fw-bold ">Administralos</span></p>
             <form action="" className="bg-light mt-3 rounded p-3 shadow" onSubmit = {handleSubmit}>
-                {error &&
-                    <div className="alert alert-danger text-center" role="alert">
-                        <p>Todos los campos son obligatorios</p>
-                    </div>}
+                {
+                    error && <Error mensaje='Todos los campos son obligatorios' />
+                    }
                 <div className="mb-4">
                     <label htmlFor="mascota" className="form-label">Nombre Mascota</label>
                     <input type="text" class="form-control mt-1" id="mascota" placeholder="Nombre de la mascota" value={nombre} onChange={ (e) => setNombre(e.target.value) } />
