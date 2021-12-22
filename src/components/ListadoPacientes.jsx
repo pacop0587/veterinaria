@@ -28,8 +28,6 @@ export const ListadoPacientes = ({pacientes}) => {
                     </p>
                 </>
             )}
-
- 
         </div>
     )
 }
