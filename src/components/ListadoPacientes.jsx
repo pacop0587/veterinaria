@@ -1,6 +1,6 @@
 import Pacientes from "./Pacientes";
 
-export const ListadoPacientes = ({pacientes}) => {
+export const ListadoPacientes = ({pacientes, setPaciente}) => {
     return (
         <div className="p-3 col-12 col-md-6">
             {pacientes && pacientes.length ? (             
@@ -15,6 +15,7 @@ export const ListadoPacientes = ({pacientes}) => {
                                 <Pacientes
                                     key = {paciente.id}
                                     paciente = {paciente}
+                                    setPaciente = {setPaciente}
                                 />
                             )
                         })

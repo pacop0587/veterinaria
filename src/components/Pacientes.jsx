@@ -1,5 +1,5 @@
 
-const Pacientes = ({paciente}) => {
+const Pacientes = ({paciente, setPaciente}) => {
     const { nombre, propietario, email, fecha, sintomas } = paciente;
     return (
         <div className="bg-light shadow px-5 py-5 my-3 rounded">
@@ -9,7 +9,7 @@ const Pacientes = ({paciente}) => {
             <p className="fw-bold">Fecha Alta: <span className="fw-normal">{fecha}</span></p>
             <p className="fw-bold">Sintomas: <span className="fw-normal">{sintomas}</span></p>
             <div className="d-flex justify-content-between my-2">
-                <button type="button" className="btn btn-primary rounded">
+                <button type="button" className="btn btn-primary rounded" onClick={ () => setPaciente(paciente)}>
                     EDITAR
                 </button>
                 <button type="button" className="btn btn-danger rounded">
