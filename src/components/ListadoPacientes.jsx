@@ -24,7 +24,7 @@ export const ListadoPacientes = ({pacientes}) => {
                 <>
                     <h2 className="fw-bold fs-4 text-center">Listado Pacientes</h2>
                     <p className="fs-5 mt-3 text-center">
-                        No hay pacientes <span className="text-info fw-bold ">Pacientes y citas</span>
+                        No hay pacientes <span className="text-info fw-bold ">Agregalos Aqui</span>
                     </p>
                 </>
             )}
