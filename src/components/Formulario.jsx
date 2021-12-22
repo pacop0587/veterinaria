@@ -1,27 +1,44 @@
 import { useState, useEffect } from "react";
 import Error from "./Error";
 
-const Formulario = () => {
+const Formulario = ({pacientes, setPacientes}) => {
+    //Hooks States
     const [nombre, setNombre] = useState('');
     const [propietario, setPropietario] = useState('');
     const [email, setEmail] = useState('');
     const [fecha, setFecha] = useState('');
     const [sintomas, setSintomas] = useState('');
-
     const [error, setError] = useState(false)
 
+    //Validar datos de fomulario y guardarlos
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        //Validando formulario
 
         if ([nombre, propietario, email, fecha, sintomas].includes('')) {
             console.log('Hay al menos un campo vacio')
             setError(true)
             return;
         }
+        
+        //Crear objeto paciente para guardar los datos
+        const objectPaciente = {
+            nombre,
+            propietario,
+            email,
+            fecha,
+            sintomas
+        }
+
+        setPacientes([...pacientes, objectPaciente]);
 
         setError(false);
+        
+        //Restableciendo los valores para vaciar el formulario
+        setNombre('');
+        setPropietario('');
+        setEmail('');
+        setFecha('');
+        setSintomas('');
 
     }
 
@@ -31,8 +48,11 @@ const Formulario = () => {
             <p className="fs-5 mt-3 text-center">Añade Pacientes y <span className="text-info fw-bold ">Administralos</span></p>
             <form action="" className="bg-light mt-3 rounded p-3 shadow" onSubmit = {handleSubmit}>
                 {
-                    error && <Error mensaje='Todos los campos son obligatorios' />
-                    }
+                    error && 
+                    <Error 
+                        mensaje='Todos los campos son obligatorios' 
+                    />
+                }
                 <div className="mb-4">
                     <label htmlFor="mascota" className="form-label">Nombre Mascota</label>
                     <input type="text" class="form-control mt-1" id="mascota" placeholder="Nombre de la mascota" value={nombre} onChange={ (e) => setNombre(e.target.value) } />
