@@ -8,11 +8,6 @@ export const ListadoPacientes = () => {
                 Administra tus <span className="text-info fw-bold ">Pacientes y citas</span>
             </p>
             <Pacientes />
-            <Pacientes />
-            <Pacientes />
-            <Pacientes />
-            <Pacientes />
-            <Pacientes />
         </div>
     )
 }
