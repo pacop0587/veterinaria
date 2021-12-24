@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Error from "./Error";
 
-const Formulario = ({pacientes, setPacientes}) => {
+const Formulario = ({pacientes, setPacientes, paciente}) => {
     //Hooks States
     const [nombre, setNombre] = useState('');
     const [propietario, setPropietario] = useState('');
@@ -9,6 +9,18 @@ const Formulario = ({pacientes, setPacientes}) => {
     const [fecha, setFecha] = useState('');
     const [sintomas, setSintomas] = useState('');
     const [error, setError] = useState(false);
+
+    //Hooks Effect
+    //useEffct usado para detectar si se dio click en editar para llenar el formulario con los datos del paciente a editar
+    useEffect( () =>{
+        if(Object.keys(paciente).length > 0){
+            setNombre(paciente.nombre);
+            setPropietario(paciente.propietario);
+            setEmail(paciente.email);
+            setFecha(paciente.fecha);
+            setSintomas(paciente.sintomas);
+        }
+    },[paciente])
 
     //Generando id para pasar varios props en un arreglo
     const generarId = () =>{
