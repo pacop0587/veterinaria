@@ -94,7 +94,7 @@ const Formulario = ({pacientes, setPacientes, paciente}) => {
                     <label htmlFor="sintomas" className="form-label">Sintomas</label>
                     <textarea className="form-control" name="" id="sintomas" placeholder="Describe los sintomas" value={sintomas} onChange={ (e) => setSintomas(e.target.value) } />
                 </div>
-                <input type="submit" className="btn  btn-info p-3 fw-bold text-light" value="Agregar Paciente"/>
+                <input type="submit" className="btn  btn-info p-3 fw-bold text-light" value={paciente.id ? 'Editar Paciente' : 'Agregar Paciente'}/>
             </form>
         </div>
     )
