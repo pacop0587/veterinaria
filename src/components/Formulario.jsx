@@ -82,7 +82,7 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
     return (
         <div className="p-3 col-12 col-md-6">
             <h2 className="fw-bold fs-4 text-center">Seguimiento Pacientes</h2>
-            <p className="fs-5 mt-3 text-center">Añade Pacientes y <span className="text-info fw-bold ">Administralos</span></p>
+            <p className="fs-5 mt-3 text-center">Añade Pacientes y <span className="text-01 fw-bold ">Administralos</span></p>
             <form action="" className="bg-light mt-3 rounded p-3 shadow" onSubmit = {handleSubmit}>
                 {
                     error && 
@@ -110,7 +110,7 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
                     <label htmlFor="sintomas" className="form-label">Sintomas</label>
                     <textarea className="form-control" name="" id="sintomas" placeholder="Describe los sintomas" value={sintomas} onChange={ (e) => setSintomas(e.target.value) } />
                 </div>
-                <input type="submit" className="btn  btn-info p-3 fw-bold text-light" value={paciente.id ? 'Editar Paciente' : 'Agregar Paciente'}/>
+                <input type="submit" className="btn back-02 p-3 fw-bold text-light" value={paciente.id ? 'Editar Paciente' : 'Agregar Paciente'}/>
             </form>
         </div>
     )

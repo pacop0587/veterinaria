@@ -3,6 +3,7 @@ import Formulario from "./components/Formulario"
 import Header from "./components/Header"
 import ListadoPacientes from "./components/ListadoPacientes"
 import bootstrap from "bootstrap/dist/css/bootstrap.min.css"
+import styles from "./index.css"
 //import bootstrapJS from "bootstrap/dist/js/bootstrap.min.js"
 
 
@@ -17,6 +18,15 @@ function App() {
      )
      setPacientes(pacientesActualizados);
   }
+  
+  //useEffect que detecta si hay algo en localstorage y evita que se borre
+  useEffect( () =>{
+      const obtenerLS = () =>{
+          const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? [];
+          setPacientes(pacientesLS)
+      }
+      obtenerLS();
+  },[])
 
   //Guardando los datos en localstorage
   useEffect( () =>{
@@ -24,7 +34,7 @@ function App() {
   },[pacientes])
 
   return (
-    <div className="container">
+    <div className="container back-01">
       <Header />
       <div className="mt-5 d-flex justify-content-around row">
         <Formulario

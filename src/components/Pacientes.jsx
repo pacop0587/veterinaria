@@ -19,11 +19,11 @@ const Pacientes = ({paciente, setPaciente, eliminarPaciente}) => {
             <p className="fw-bold">Sintomas: <span className="fw-normal">{sintomas}</span></p>
             <div className="d-flex justify-content-between my-2">
                 {/* Se agrego una funcion de flecha a onClick para evitar que la funcion se ejecute en automatico */}
-                <button type="button" className="btn btn-primary rounded" onClick={ () => setPaciente(paciente)}>
+                <button type="button" className="btn back-02 text-white rounded" onClick={ () => setPaciente(paciente)}>
                     EDITAR
                 </button>
                 <button type="button" className="btn btn-danger rounded" onClick={handleEliminar}>
-                    ELIMNINAR
+                    ELIMINAR
                 </button>
             </div>
         </div>
